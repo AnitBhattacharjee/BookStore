@@ -4,19 +4,20 @@ import mongoose from "mongoose";
 import { Book } from "./models/bookmodels.js";
 import router from "./routes/booksRoute.js";
 const app = express();
+import cors from 'cors';
 
 //middleware to parse req body
 app.use(express.json());
 
-// app.use(cors());
+app.use(cors());
 
-app.use(
-    cors({
-        origin:'http://localhost:3000',
-        methods:['GET','PUT','POST','DELETE'],
-        allowedHeaders:['Content-Type'],
-    })
-);
+// app.use(
+//     cors({
+//         origin:'http://localhost:3000',
+//         methods:['GET','PUT','POST','DELETE'],
+//         allowedHeaders:['Content-Type'],
+//     })
+// );
 
 app.get('/', (request, response) => {
     console.log(request);
